@@ -74,7 +74,6 @@ Cigar* ConsoleDriver::inputCigarPrompt(int index)
   std::string brand, name;
   int quantity, ring;
   double length;
-  std::cin.clear();
   std::cout << "Cigar Input" << std::endl;
   std::cout << "Enter brand: ";
   getline(std::cin, brand);
@@ -97,7 +96,7 @@ int ConsoleDriver::removeCigarPrompt()
   int i;
   printMenu();
   std::cout << "Enter index to delete: ";
-  std::cin >> i;
+  std::cin >> i; std::cin.ignore();
   return i;
 }
 
