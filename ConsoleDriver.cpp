@@ -7,7 +7,7 @@ ConsoleDriver::ConsoleDriver()
   while (ch != 'n')
   {
     std::cout << "Create new humidor?" << std::endl;
-    ch = getch();
+    ch = _getch();
     if (ch == 'y')
     {
       std::cout << "Enter humidor filename: ";
@@ -24,13 +24,13 @@ ConsoleDriver::ConsoleDriver(std::string path)
 {
   ss = new StogieStore(path);
   changesFlag = false;
-  char ch;
+  char ch = '0';
   while (ch != '5')
   {
     ch = '0';
     std::cout << "Current database: " << path << std::endl;
   	printMenu();
-    ch = getch();
+    ch = _getch();
 
     switch (ch)
     {
@@ -47,6 +47,7 @@ ConsoleDriver::ConsoleDriver(std::string path)
       ss->updateIndices();
       break;
       case '4':
+      changesFlag = false;
       ss->saveHumidor();
       break;
       case '5':
@@ -69,7 +70,7 @@ void ConsoleDriver::printMenu()
 	std::cout << "5. Quit" << std::endl;
 }
 
-Cigar* ConsoleDriver::inputCigarPrompt(int index)
+Cigar* ConsoleDriver::inputCigarPrompt(size_t index)
 {
   std::string brand, name;
   int quantity, ring;
@@ -107,7 +108,7 @@ void ConsoleDriver::saveChangesPrompt()
   while(ch != 'y' || ch != 'n')
   {
     std::cout << "Save changes? y/n" << std::endl;
-    ch = getch();
+    ch = _getch();
     switch(ch)
     {
       case 'y':

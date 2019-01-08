@@ -6,14 +6,14 @@
 class Cigar
 {
 private:
-  int index;
+  size_t index;
   int quantity;
   std::string brand;
   std::string name;
   double length;
   int ring;
 public:
-  Cigar(int index, int quantity, std::string brand, std::string name, double length, int ring);
+  Cigar(size_t index, int quantity, std::string brand, std::string name, double length, int ring);
   std::string getSimpleString();
   std::string getCSVString();
   std::string getFormattedString();

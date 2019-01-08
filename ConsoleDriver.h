@@ -18,7 +18,7 @@ public:
   ConsoleDriver();
   ConsoleDriver(std::string path);
   void printMenu();
-  Cigar* inputCigarPrompt(int index);
+  Cigar* inputCigarPrompt(size_t index);
   int removeCigarPrompt();
   void saveChangesPrompt();
 };

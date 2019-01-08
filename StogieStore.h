@@ -20,7 +20,7 @@ public:
   // Humidor I/O
 	std::string getHumidor();
 	void saveHumidor();
-  int getHumidorSize() { return humidor.size(); };
+    size_t getHumidorSize() { return humidor.size(); };
 };
 
 #endif

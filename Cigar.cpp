@@ -1,6 +1,6 @@
 #include "Cigar.h"
 
-Cigar::Cigar(int index, int quantity, std::string brand, std::string name, double length, int ring)
+Cigar::Cigar(size_t index, int quantity, std::string brand, std::string name, double length, int ring)
 {
   this->index = index;
   this->quantity = quantity;
