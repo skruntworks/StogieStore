@@ -29,7 +29,7 @@ ConsoleDriver::ConsoleDriver(std::string path)
   {
     ch = '0';
     std::cout << "Current database: " << path << std::endl;
-  	printMenu();
+    printMenu();
     ch = _getch();
 
     switch (ch)
@@ -52,7 +52,7 @@ ConsoleDriver::ConsoleDriver(std::string path)
       break;
       case '5':
       if (changesFlag)
-        saveChangesPrompt();
+      saveChangesPrompt();
       break;
       default:
       break;
@@ -64,10 +64,10 @@ void ConsoleDriver::printMenu()
 {
   std::cout << std::endl;
   std::cout << "1. Print cigar database" << std::endl;
-	std::cout << "2. Add entry" << std::endl;
-	std::cout << "3. Delete entry" << std::endl;
-	std::cout << "4. Save changes" << std::endl;
-	std::cout << "5. Quit" << std::endl;
+  std::cout << "2. Add entry" << std::endl;
+  std::cout << "3. Delete entry" << std::endl;
+  std::cout << "4. Save changes" << std::endl;
+  std::cout << "5. Quit" << std::endl;
 }
 
 Cigar* ConsoleDriver::inputCigarPrompt(size_t index)

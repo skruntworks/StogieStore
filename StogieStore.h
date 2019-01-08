@@ -13,14 +13,14 @@ private:
 	std::string path;
 public:
 	StogieStore(std::string path);
-  // Humidor controls
+	// Humidor controls
 	void addCigar(Cigar* c);
 	void removeCigar(int index);
 	void updateIndices();
-  // Humidor I/O
+	// Humidor I/O
 	std::string getHumidor();
 	void saveHumidor();
-    size_t getHumidorSize() { return humidor.size(); };
+	size_t getHumidorSize() { return humidor.size(); };
 };
 
 #endif
