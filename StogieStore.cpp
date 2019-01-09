@@ -20,6 +20,7 @@ StogieStore::StogieStore(std::string path)
     ++index;
 
     humidor.push_back(currentCigar);
+    delete currentCigar;
   }
 }
 

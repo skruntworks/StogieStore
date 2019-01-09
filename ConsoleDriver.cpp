@@ -22,7 +22,7 @@ ConsoleDriver::ConsoleDriver()
 
 ConsoleDriver::ConsoleDriver(std::string path)
 {
-  ss = new StogieStore(path);
+  this->path = path;
   changesFlag = false;
   char ch = '0';
   while (ch != '5')
@@ -35,20 +35,20 @@ ConsoleDriver::ConsoleDriver(std::string path)
     switch (ch)
     {
       case '1':
-      std::cout << ss->getHumidor();
+      std::cout << ss.getHumidor();
       break;
       case '2':
       changesFlag = true;
-      ss->addCigar(inputCigarPrompt(ss->getHumidorSize()));
+      ss.addCigar(inputCigarPrompt(ss.getHumidorSize()));
       break;
       case '3':
       changesFlag = true;
-      ss->removeCigar(removeCigarPrompt());
-      ss->updateIndices();
+      ss.removeCigar(removeCigarPrompt());
+      ss.updateIndices();
       break;
       case '4':
       changesFlag = false;
-      ss->saveHumidor();
+      ss.saveHumidor();
       break;
       case '5':
       if (changesFlag)
@@ -58,7 +58,6 @@ ConsoleDriver::ConsoleDriver(std::string path)
       break;
     }
   }
-  delete ss;
 }
 void ConsoleDriver::printMenu()
 {
@@ -112,7 +111,7 @@ void ConsoleDriver::saveChangesPrompt()
     switch(ch)
     {
       case 'y':
-      ss->saveHumidor();
+      ss.saveHumidor();
       case 'n':
       exit(EXIT_SUCCESS);
       break;
@@ -124,11 +123,9 @@ int main(int argc, char *argv[])
 {
   if (argc != 2)
   {
-    ConsoleDriver* cd = new ConsoleDriver;
-    delete cd;
+    ConsoleDriver cd = ConsoleDriver();
     return 0;
   }
-  ConsoleDriver* cd = new ConsoleDriver(argv[1]);
-  delete cd;
+  ConsoleDriver cd = ConsoleDriver(argv[1]);
   return 0;
 }

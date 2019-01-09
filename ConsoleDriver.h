@@ -12,8 +12,9 @@
 class ConsoleDriver
 {
 private:
+  std::string path;
   bool changesFlag;
-  StogieStore* ss;
+  StogieStore ss = StogieStore(path);
 public:
   ConsoleDriver();
   ConsoleDriver(std::string path);
