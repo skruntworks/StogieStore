@@ -9,7 +9,7 @@
 #include "StogieStore.h"
 #include "Cigar.h"
 
-class ConsoleDriver
+class ConsoleDriver // For Windows only
 {
 private:
   std::string path;

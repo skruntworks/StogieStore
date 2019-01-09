@@ -27,6 +27,7 @@ StogieStore::StogieStore(std::string path)
 void StogieStore::addCigar(Cigar* c)
 {
   humidor.push_back(c);
+  delete c;
 }
 
 void StogieStore::removeCigar(int index)
